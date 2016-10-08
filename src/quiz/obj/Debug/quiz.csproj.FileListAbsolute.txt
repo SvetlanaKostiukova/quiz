@@ -4,3 +4,9 @@ c:\users\светлана\documents\visual studio 2013\Projects\quiz\quiz\bin\qu
 c:\users\светлана\documents\visual studio 2013\Projects\quiz\quiz\obj\Debug\quiz.csprojResolveAssemblyReference.cache
 c:\users\светлана\documents\visual studio 2013\Projects\quiz\quiz\obj\Debug\quiz.dll
 c:\users\светлана\documents\visual studio 2013\Projects\quiz\quiz\obj\Debug\quiz.pdb
+C:\Users\Светлана\Documents\Repos\quiz\src\quiz\bin\quiz.dll.config
+C:\Users\Светлана\Documents\Repos\quiz\src\quiz\bin\quiz.dll
+C:\Users\Светлана\Documents\Repos\quiz\src\quiz\bin\quiz.pdb
+C:\Users\Светлана\Documents\Repos\quiz\src\quiz\obj\Debug\quiz.csprojResolveAssemblyReference.cache
+C:\Users\Светлана\Documents\Repos\quiz\src\quiz\obj\Debug\quiz.dll
+C:\Users\Светлана\Documents\Repos\quiz\src\quiz\obj\Debug\quiz.pdb

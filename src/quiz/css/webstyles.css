@@ -1,5 +1,76 @@
 ﻿html,
 body {
-  background: url("images/X-files.jpg") no-repeat fixed center;
+  background: url("../images/X-files.jpg") no-repeat fixed center;
+  background-size: cover;
+  padding: 5% 0;
+}
+#content {
+  min-width: 320px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#content .start {
+  color: white;
+  border: 1px solid white;
+  padding: 10% 0;
+  background: #666666;
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(102, 102, 102, 0.5));
+  background: -o-linear-gradient(rgba(0, 0, 0, 0.5), rgba(102, 102, 102, 0.5));
+  background: -moz-linear-gradient(rgba(0, 0, 0, 0.5), rgba(102, 102, 102, 0.5));
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(102, 102, 102, 0.5));
+}
+#content .start h1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+#content .start h3 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+#content .start .start-button {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  background-color: #AF232B;
+  width: 150px;
+  height: 50px;
+  border-radius: 15px;
+  cursor: pointer;
+  padding: 15px 20px;
+}
+#content .start .start-button .outter-icon {
+  display: inline-block;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: #7C0113;
+  vertical-align: middle;
+  padding: 5px 5px 5px 7px;
+}
+#content .start .start-button .outter-icon .inner-icon {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  /*margin-left:auto;
+                    margin-right: auto;*/
+  width: 0;
+  height: 0;
+  border-left: 15px solid white;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+#content .start .start-button .start-text {
+  display: inline-block;
+  margin-left: 20px;
 }
 /*# sourceMappingURL=webstyles.css.map */

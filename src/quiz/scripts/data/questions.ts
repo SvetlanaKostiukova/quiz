@@ -2,6 +2,7 @@
     export module quizData {
         export interface IQuestion {
             CheckAnswer(answer: string): { isCorrect: boolean; comment: string };
+            GetQuestion(): { question: string; answers: string[] }
             MixAnswers();
         }
 
@@ -37,6 +38,10 @@
                     newAnswers[idx] = this.answers[i];
                 }
                 this.answers = newAnswers.slice(0);
+            }
+
+            public GetQuestion(): { question: string; answers: string[] } {
+                return { question: this.question, answers: this.answers.slice(0) };
             }
         }
 

@@ -1,5 +1,5 @@
-﻿/// <reference path="..\scripts\jquery.d.ts"/>
-/// <reference path="..\scripts\jqueryui.d.ts"/>
+﻿/// <reference path="..\jquery\jquery.d.ts"/>
+/// <reference path="..\jquery\jqueryui.d.ts"/>
 
 (function ($) {
     $.widget("quiz.resultview", {

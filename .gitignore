@@ -4,6 +4,7 @@
 *~
 ~$*
 *.cache
+*.pdb
 
 src/quiz/scripts/**/*.js
 !src/quiz/scripts/jquery/*.js

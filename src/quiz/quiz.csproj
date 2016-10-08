@@ -19,6 +19,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.css" />
+    <Content Include="appBundle.js">
+      <DependentUpon>appBundle.js.bundle</DependentUpon>
+    </Content>
+    <Content Include="appBundle.min.js">
+      <DependentUpon>appBundle.js</DependentUpon>
+    </Content>
     <Content Include="css\webstyles.css">
       <DependentUpon>webstyles.less</DependentUpon>
     </Content>
@@ -27,24 +33,32 @@
     </Content>
     <Content Include="images\X-files.jpg" />
     <Content Include="index.html" />
-    <Content Include="scripts\jquery-2.1.1.min.js" />
-    <Content Include="scripts\jquery-ui-1.10.4.min.js" />
+    <Content Include="scripts\jquery\jquery-2.1.1.min.js" />
+    <Content Include="scripts\jquery\jquery-ui-1.10.4.min.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
-    <TypeScriptCompile Include="data\questions.ts" />
-    <TypeScriptCompile Include="presenter\quiz.ts" />
-    <TypeScriptCompile Include="scripts\jquery.d.ts" />
-    <TypeScriptCompile Include="scripts\jqueryui.d.ts" />
-    <TypeScriptCompile Include="view\questionview.ts" />
-    <TypeScriptCompile Include="view\resultview.ts" />
+    <TypeScriptCompile Include="scripts\data\questions.ts" />
+    <TypeScriptCompile Include="scripts\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="scripts\jquery\jqueryui.d.ts" />
+    <TypeScriptCompile Include="scripts\presenter\quiz.ts" />
+    <TypeScriptCompile Include="scripts\uidrivers\uidrivers.ts" />
+    <TypeScriptCompile Include="scripts\view\questionview.ts" />
+    <TypeScriptCompile Include="scripts\view\quizviewer.ts" />
+    <TypeScriptCompile Include="scripts\view\resultview.ts" />
+    <TypeScriptCompile Include="scripts\view\startview.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\webstyles.less" />
     <Content Include="css\webstyles.css.map">
       <DependentUpon>webstyles.css</DependentUpon>
     </Content>
+    <Content Include="appBundle.js.bundle" />
+    <Content Include="appBundle.min.js.map">
+      <DependentUpon>appBundle.min.js</DependentUpon>
+    </Content>
+    <Content Include="data.json" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
