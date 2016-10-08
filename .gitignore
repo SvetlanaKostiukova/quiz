@@ -1,0 +1,10 @@
+*.suo
+*.user
+
+*~
+~$*
+*.cache
+
+src/quiz/scripts/**/*.js
+!src/quiz/scripts/jquery/*.js
+src/quiz/scripts/**/*.map
