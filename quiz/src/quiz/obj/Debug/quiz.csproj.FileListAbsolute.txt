@@ -1,0 +1,6 @@
+c:\users\светлана\documents\visual studio 2013\Projects\quiz\quiz\bin\quiz.dll.config
+c:\users\светлана\documents\visual studio 2013\Projects\quiz\quiz\bin\quiz.dll
+c:\users\светлана\documents\visual studio 2013\Projects\quiz\quiz\bin\quiz.pdb
+c:\users\светлана\documents\visual studio 2013\Projects\quiz\quiz\obj\Debug\quiz.csprojResolveAssemblyReference.cache
+c:\users\светлана\documents\visual studio 2013\Projects\quiz\quiz\obj\Debug\quiz.dll
+c:\users\светлана\documents\visual studio 2013\Projects\quiz\quiz\obj\Debug\quiz.pdb
