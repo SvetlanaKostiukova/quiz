@@ -7,8 +7,9 @@
         }
 
         export interface IResult {
-            AddResult();
-            GetResult(): { title: string; correctAnswers: number };
+            AddResult(result: { idx: number; answer: string; result: { isCorrect: boolean; comment: string } });
+            GetResults(): { title: string; correctAnswers: number };
+            GetResult(idx: number): { answer: string; correct: string };
         }
 
         export class Question implements IQuestion {
@@ -16,15 +17,15 @@
             private answers: string[];
             private correctAns: string;
 
-            constructor(question: string, answers: string[], correct: string) {
+            constructor(question: string, answers: string[], correctAnswer: string) {
                 this.question = question;
                 this.answers = answers.slice(0);
-                this.correctAns = correct;
+                this.correctAns = correctAnswer;
             }
 
             public CheckAnswer(obtainedAns: string): { isCorrect: boolean; comment: string } {
-                if (this.correctAns.indexOf(obtainedAns) > -1)
-                    return { isCorrect: true, comment: "" };
+                if (this.correctAns == obtainedAns)
+                    return { isCorrect: true, comment: this.correctAns };
                 return { isCorrect: false, comment: this.correctAns };
             }
 
@@ -48,16 +49,26 @@
         export class Result implements IResult {
             private questionsAmount: number = 0;
             private correctAnswers: number = 0;
+            private answers: any[] = [];
 
             constructor(questions: number) {
                 this.questionsAmount = questions;
             }
 
-            public AddResult() {
-                this.correctAnswers++;
+            public AddResult(result: { idx: number; answer: string; result: { isCorrect: boolean; comment: string } }) {
+                var res = { answer: result.answer, correct: result.result.comment };
+                if (this.answers[result.idx] == undefined) {
+                    this.answers[result.idx] = res;
+                    if (result.result.isCorrect)
+                        this.correctAnswers++;
+                }
             }
 
-            public GetResult(): { title: string; correctAnswers: number } {
+            public GetResult(idx: number): { answer: string; correct: string } {
+                return this.answers[idx];
+            }
+
+            public GetResults(): { title: string; correctAnswers: number } {
                 var index = this.correctAnswers / this.questionsAmount;
                 if (index < 0.33)
                     return {

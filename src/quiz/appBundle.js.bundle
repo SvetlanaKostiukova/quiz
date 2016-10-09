@@ -16,5 +16,6 @@
     <file>/scripts/view/questionview.js</file>
     <file>/scripts/view/resultview.js</file>
     <file>/scripts/view/startview.js</file>
+    <file>/scripts/view/quizviewer.js</file>
   </files>
 </bundle>
