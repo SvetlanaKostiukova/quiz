@@ -32,9 +32,9 @@
             public MixAnswers() {
                 var newAnswers = [];
                 for (var i = 0; i < this.answers.length; i++) {
-                    var idx = Math.floor(Math.random() * (this.answers.length + 1));
+                    var idx = Math.floor(Math.random() * this.answers.length);
                     while (newAnswers[idx]) {
-                        idx = Math.floor(Math.random() * (this.answers.length + 1));
+                        idx = Math.floor(Math.random() * this.answers.length);
                     }
                     newAnswers[idx] = this.answers[i];
                 }

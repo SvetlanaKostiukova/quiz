@@ -26,11 +26,15 @@
                 this.answersDiv = $("<div></div>").addClass("answers").appendTo(this.element);
                 var answersUl = $("<ul></ul>").appendTo(this.answersDiv);
                 for (var i = 0; i < question.answers.length; i++) {
-                    var answer = $("<li>" + question.answers[i] + "</li>").appendTo(answersUl).click(function () {
+                    var answerLi = $("<li></li>").appendTo(answersUl).click(function () {
                         if (that.options.onselectedanswer !== undefined) {
-                            that.options.onselectedanswer($(this).text());
+                            var answer = $(this).find(".answer-text").eq(0);
+                            that.options.onselectedanswer(answer.text());
                         }
                     });
+                    var icon = $("<div></div>").addClass("marker").appendTo(answerLi);
+                    var iconSelected = $("<div></div>").appendTo(icon);
+                    var text = $("<div>" + question.answers[i] + "</div>").addClass("answer-text").appendTo(answerLi);
                 }
             }
         },

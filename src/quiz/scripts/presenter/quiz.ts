@@ -80,11 +80,11 @@
         public MixQuestions() {
             var newQuestions = [];
             for (var i = 0; i < this.questions.length; i++) {
-                var idx = Math.floor(Math.random() * (this.questions.length + 1));
+                var idx = Math.floor(Math.random() * this.questions.length);
                 while (newQuestions[idx]) {
-                    idx = Math.floor(Math.random() * (this.questions.length + 1));
+                    idx = Math.floor(Math.random() * this.questions.length);
                 }
-                newQuestions[idx] = this.questions[i].MixAnswers();
+                newQuestions[idx] = this.questions[i];
             }
             this.questions = newQuestions.slice(0);
         }

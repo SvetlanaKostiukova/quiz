@@ -17,9 +17,9 @@ var quiz;
             Question.prototype.MixAnswers = function () {
                 var newAnswers = [];
                 for (var i = 0; i < this.answers.length; i++) {
-                    var idx = Math.floor(Math.random() * (this.answers.length + 1));
+                    var idx = Math.floor(Math.random() * this.answers.length);
                     while (newAnswers[idx]) {
-                        idx = Math.floor(Math.random() * (this.answers.length + 1));
+                        idx = Math.floor(Math.random() * this.answers.length);
                     }
                     newAnswers[idx] = this.answers[i];
                 }
@@ -141,11 +141,11 @@ var quiz;
         QuizQuestions.prototype.MixQuestions = function () {
             var newQuestions = [];
             for (var i = 0; i < this.questions.length; i++) {
-                var idx = Math.floor(Math.random() * (this.questions.length + 1));
+                var idx = Math.floor(Math.random() * this.questions.length);
                 while (newQuestions[idx]) {
-                    idx = Math.floor(Math.random() * (this.questions.length + 1));
+                    idx = Math.floor(Math.random() * this.questions.length);
                 }
-                newQuestions[idx] = this.questions[i].MixAnswers();
+                newQuestions[idx] = this.questions[i];
             }
             this.questions = newQuestions.slice(0);
         };
@@ -247,11 +247,15 @@ var quiz;
                 this.answersDiv = $("<div></div>").addClass("answers").appendTo(this.element);
                 var answersUl = $("<ul></ul>").appendTo(this.answersDiv);
                 for (var i = 0; i < question.answers.length; i++) {
-                    var answer = $("<li>" + question.answers[i] + "</li>").appendTo(answersUl).click(function () {
+                    var answerLi = $("<li></li>").appendTo(answersUl).click(function () {
                         if (that.options.onselectedanswer !== undefined) {
-                            that.options.onselectedanswer($(this).text());
+                            var answer = $(this).find(".answer-text").eq(0);
+                            that.options.onselectedanswer(answer.text());
                         }
                     });
+                    var icon = $("<div></div>").addClass("marker").appendTo(answerLi);
+                    var iconSelected = $("<div></div>").appendTo(icon);
+                    var text = $("<div>" + question.answers[i] + "</div>").addClass("answer-text").appendTo(answerLi);
                 }
             }
         },
@@ -300,10 +304,15 @@ var quiz;
         createResult: function () {
             if (this.options.result) {
                 this.element.empty();
-                var resultDiv = $("<div></div>").appendTo(this.element);
+                var resultDiv = $("<div></div>").addClass("result").appendTo(this.element);
                 var title = $("<h1>Помните ли вы те, прежние «Секретные материалы»?<h1>").appendTo(resultDiv);
                 var answers = $("<h3>Правильные ответы: " + this.options.result.correctAnswers + "/10</h3>").appendTo(resultDiv);
-                var comment = $("<h3>" + this.options.result.title + "</h3>").appendTo(resultDiv);
+                var comment = $("<h3>" + this.options.result.title + "</h3>").addClass("result-comment").appendTo(resultDiv);
+                var shareDiv = $("<div><div>").addClass("share-block").appendTo(resultDiv);
+                var share = $("<h5>Поделиться результатом</h5>").appendTo(shareDiv);
+                var fcbook = $("<div></div>").addClass("social").addClass("facebook").appendTo(shareDiv);
+                var vk = $("<div></div>").addClass("social").addClass("vk").appendTo(shareDiv);
+                var twitter = $("<div></div>").addClass("social").addClass("tw").appendTo(shareDiv);
             }
         },
         _setOption: function (key, value) {
@@ -331,7 +340,7 @@ var quiz;
         _create: function () {
             var that = this;
             this.element.empty();
-            var mainDiv = $("<div></div>").addClass("start").appendTo(this.element);
+            var mainDiv = this.element.addClass("start");
             var title = $("<h1>Помните ли вы те, прежние «Секретные материалы»?<h1>").appendTo(mainDiv);
             var subtitle = $("<h3>Тест на знание культового телесериала <h3>").appendTo(mainDiv);
             var startButton = $("<div></div>").addClass("start-button").appendTo(mainDiv).click(function () {
@@ -340,7 +349,7 @@ var quiz;
             });
             var startIcon = $("<div><div>").addClass("outter-icon").appendTo(startButton);
             var playBttn = $("<div></div>").addClass("inner-icon").appendTo(startIcon);
-            var start = $("<div>Начать<div>").addClass("start-text").appendTo(startButton);
+            var start = $("<div>НАЧАТЬ<div>").addClass("start-text").appendTo(startButton);
         },
     });
 }(jQuery));
@@ -358,30 +367,33 @@ var quiz;
         _create: function () {
             var that = this;
             this.element.empty();
-            this.content = $("<div></div>").appendTo(this.element);
+            var header = $("<div>© Газета.ру и Рамблер Инфографика, 2016</div>").addClass("content-header").appendTo(this.element);
+            this.mainContent = $("<div></div>").appendTo(this.element);
+            this.content = $("<div></div>").appendTo(this.mainContent);
             this.startContent = $("<div></div>").appendTo(this.content);
+            this.testContent = $("<div></div>").appendTo(this.content).hide();
             if (this.options.startview) {
                 $(this.startContent).replaceWith(this.options.startview);
                 this.startContent = this.options.startview;
+                this.height = $(this.startContent).height();
             }
-            this.testContent = $("<div></div>").appendTo(this.content).hide();
             this.pageNumbers = $("<div></div>").addClass("page-numbers").appendTo(this.content).hide();
-            this.prevBttn = $("<div></div>").addClass("prev-bttn").appendTo(this.pageNumbers).click(function () {
-                if (that.options.onprevclick !== undefined)
-                    that.options.onprevclick();
-            });
-            var prevArrow = $("<div><</div>").appendTo(this.prevBttn);
-            var prev = $("<div>Назад</div>").appendTo(this.prevBttn);
+            //this.prevBttn = $("<div></div>").addClass("prev-bttn").appendTo(this.pageNumbers).click(function () {
+            //    if (that.options.onprevclick !== undefined)
+            //        that.options.onprevclick();
+            //});
+            //var prevArrow = $("<div><</div>").appendTo(this.prevBttn);
+            //var prev = $("<div>Назад</div>").appendTo(this.prevBttn);
             this.progress = $("<div></div>").addClass("page").appendTo(this.pageNumbers);
-            this.number = $("<p>" + this.options.pageNumber + "</p>").appendTo(this.progress);
-            this.slash = $("<p>/</p>").appendTo(this.progress);
-            this.maxPageNumber = $("<p>" + (this.options.pages - 2) + "</p>").appendTo(this.progress);
+            this.number = $("<div>" + this.options.pageNumber + "</div>").appendTo(this.progress);
+            this.slash = $("<div>/</div>").appendTo(this.progress);
+            this.maxPageNumber = $("<div>" + (this.options.pages - 2) + "</div>").appendTo(this.progress);
             this.nextBttn = $("<div></div>").addClass("next-bttn").appendTo(this.pageNumbers).click(function () {
                 if (that.options.onnextclick !== undefined)
                     that.options.onnextclick();
             });
-            var next = $("<div>Дальше</div>").appendTo(this.nextBttn);
-            var nextArrow = $("<div>></div>").appendTo(this.nextBttn);
+            var next = $("<div>ДАЛЬШЕ</div>").appendTo(this.nextBttn);
+            var nextArrow = $("<div>></div>").addClass("arrow").appendTo(this.nextBttn);
             var clearfix = $("<div></div>").addClass("clearfix").appendTo(this.content);
             this.indicators = $("<div></div>").addClass("indicators").appendTo(this.element);
             this.refresh();
@@ -394,7 +406,7 @@ var quiz;
                 var circle = $("<div></div>").addClass("circle-indicator").appendTo(li);
             }
             this.nextBttn.show();
-            this.prevBttn.show();
+            //this.prevBttn.show();
             if (this.options.pageNumber >= this.options.pages) {
                 this.options.pageNumber = this.options.pages - 1;
                 this.nextBttn.hide();
@@ -403,8 +415,8 @@ var quiz;
                 this.nextBttn.hide();
             if (this.options.pageNumber < 0)
                 this.options.pageNumber = 0;
-            if (this.options.pageNumber < 1)
-                this.prevBttn.hide();
+            //if (this.options.pageNumber < 1)
+            //    this.prevBttn.hide();
             $(this.number).text(this.options.pageNumber);
             var lis = $(indicatorsUl).find("li:lt(" + (this.options.pageNumber + 1) + ")");
             lis.children().addClass("completed");
@@ -412,30 +424,36 @@ var quiz;
         changeMode: function () {
             switch (this.options.mode) {
                 case "startview":
+                    this.mainContent.removeClass("main-border");
                     this.content.removeClass("quiz-div");
                     this.testContent.hide();
                     this.pageNumbers.hide();
                     this.startContent.show();
+                    this.height = $(this.startContent).height();
                     break;
                 case "testview":
                     if (this.options.testview) {
+                        this.mainContent.addClass("main-border");
                         this.content.addClass("quiz-div");
                         this.startContent.hide();
                         this.testContent.show();
                         $(this.testContent).replaceWith(this.options.testview);
                         this.testContent = this.options.testview;
+                        $(this.testContent).height(this.height);
                         this.pageNumbers.show();
                         this.progress.show();
                     }
                     break;
                 case "resultview":
                     if (this.options.resultview) {
+                        this.mainContent.addClass("main-border");
                         this.content.addClass("quiz-div");
                         this.options.pageNumber = this.options.pages;
                         this.startContent.hide();
                         this.testContent.show();
                         $(this.testContent).replaceWith(this.options.resultview);
                         this.testContent = this.options.resultview;
+                        $(this.testContent).height(this.height);
                         this.pageNumbers.show();
                         this.progress.hide();
                     }
@@ -450,6 +468,7 @@ var quiz;
                     if (value) {
                         $(this.startContent).replaceWith(value);
                         this.startContent = this.options.startview;
+                        this.height = $(this.startContent).height();
                     }
                     break;
                 case "testview":

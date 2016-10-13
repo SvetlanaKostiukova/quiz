@@ -1,105 +1,217 @@
-﻿html,
-body {
+﻿html {
   background: url("../images/X-files.jpg") no-repeat fixed center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  padding: 5% 0;
+}
+body,
+html {
+  margin: 0;
+  height: 100%;
+  font-family: "PT Sans", sans-serif;
+  font-weight: normal;
+  font-size: 18pt;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 #content {
+  position: relative;
+  height: 100%;
+}
+#content #quiz {
+  position: absolute;
   min-width: 320px;
   max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 70%;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-#content .clearfix {
+#content #quiz .content-header {
+  font-size: 12pt;
+  color: white;
+  margin-bottom: 10px;
+}
+#content #quiz .clearfix {
   clear: both;
   height: 0;
 }
-#content h1 {
+#content #quiz h1,
+#content #quiz h3 {
   display: block;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  font-weight: normal;
+  cursor: default;
 }
-#content h3 {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+#content #quiz h1 {
+  font-family: "PT Serif", serif;
+  font-weight: bold;
+  font-size: 25pt;
 }
-#content .quiz-div {
-  padding: 30px;
+#content #quiz h3 {
+  font-size: 18pt;
+}
+#content #quiz .main-border {
+  border: 1px solid transparent;
   background-color: white;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.5) 6px 6px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 6px 6px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.5) 6px 6px;
 }
-#content .quiz-div .answers ul {
+#content #quiz .main-border .quiz-div {
+  padding: 5% 10%;
+  border: 2px solid #B2B2B2;
+  color: #3B3B3B;
+}
+#content #quiz .main-border .quiz-div .question-div {
+  cursor: default;
+}
+#content #quiz .main-border .quiz-div .question-div .question {
+  font-family: "PT Serif", serif;
+  font-size: 20pt;
+}
+#content #quiz .main-border .quiz-div .answers {
+  margin-top: 50px;
+}
+#content #quiz .main-border .quiz-div .answers ul {
   padding: 0;
+  list-style: none;
 }
-#content .quiz-div .answers ul li {
+#content #quiz .main-border .quiz-div .answers ul li {
   cursor: pointer;
 }
-#content .quiz-div .answers ul li.correct {
-  color: green;
+#content #quiz .main-border .quiz-div .answers ul li .marker {
+  display: inline-block;
+  border: 1px solid;
+  width: 10px;
+  height: 10px;
+  padding: 1px;
 }
-#content .quiz-div .answers ul li.false {
-  color: red;
+#content #quiz .main-border .quiz-div .answers ul li .marker div {
+  height: 8px;
+  width: 8px;
+  margin: 1px auto;
 }
-#content .quiz-div .page-numbers {
+#content #quiz .main-border .quiz-div .answers ul li .answer-text {
+  display: inline-block;
+  margin-left: 15px;
+}
+#content #quiz .main-border .quiz-div .answers ul li.correct {
+  color: #13A506;
+}
+#content #quiz .main-border .quiz-div .answers ul li.correct .marker {
+  color: black;
+}
+#content #quiz .main-border .quiz-div .answers ul li.correct .marker div {
+  background-color: #B2B2B2;
+}
+#content #quiz .main-border .quiz-div .answers ul li.false {
+  color: #AE242C;
+}
+#content #quiz .main-border .quiz-div .answers ul li.false .marker {
+  color: black;
+}
+#content #quiz .main-border .quiz-div .answers ul li.false .marker div {
+  background-color: transparent;
+}
+#content #quiz .main-border .quiz-div .page-numbers {
   text-align: center;
+  margin-top: 50px;
+  color: #707070;
+  font-size: 14pt;
+  cursor: default;
 }
-#content .quiz-div .page-numbers div {
+#content #quiz .main-border .quiz-div .page-numbers div {
   display: inline-block;
 }
-#content .quiz-div .page-numbers .prev-bttn {
+#content #quiz .main-border .quiz-div .page-numbers .prev-bttn {
   float: left;
   cursor: pointer;
 }
-#content .quiz-div .page-numbers .page p {
+#content #quiz .main-border .quiz-div .page-numbers .page div {
   display: inline-block;
+  margin: 0;
 }
-#content .quiz-div .page-numbers .next-bttn {
-  float: right;
+#content #quiz .main-border .quiz-div .page-numbers .next-bttn {
+  position: absolute;
+  right: 60px;
   cursor: pointer;
+  color: #B2B2B2;
+  font-weight: bold;
 }
-#content .indicators {
+#content #quiz .main-border .quiz-div .page-numbers .next-bttn div {
+  margin-right: 10px;
+}
+#content #quiz .main-border .quiz-div .page-numbers .next-bttn .arrow {
+  position: absolute;
+  color: #AF232B;
+  font-size: 60px;
+  font-weight: normal;
+  line-height: 18px;
+}
+#content #quiz .main-border .quiz-div .result h1 {
+  font-weight: normal;
+  font-size: 20pt;
+}
+#content #quiz .main-border .quiz-div .result .result-comment {
+  font-weight: bold;
+}
+#content #quiz .main-border .quiz-div .result .share-block {
+  font-size: 14pt;
+}
+#content #quiz .indicators {
+  position: absolute;
+  left: 0;
+  right: 0;
   text-align: center;
 }
-#content .indicators ul {
+#content #quiz .indicators ul {
   padding: 0;
 }
-#content .indicators ul .indicator {
+#content #quiz .indicators ul .indicator {
   display: inline-block;
   margin-right: 10px;
 }
-#content .indicators ul .indicator .circle-indicator {
-  width: 10px;
-  height: 10px;
+#content #quiz .indicators ul .indicator .circle-indicator {
+  width: 6px;
+  height: 6px;
   border-radius: 15px;
   background: #555555;
 }
-#content .indicators ul .indicator .circle-indicator.completed {
+#content #quiz .indicators ul .indicator .circle-indicator.completed {
   background: #ADADAD;
 }
-#content .start {
+#content #quiz .start {
+  font-weight: bold;
+  font-size: 14pt;
   color: white;
   border: 1px solid white;
-  padding: 10% 0;
+  padding: 10%;
   background: #666666;
   background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(102, 102, 102, 0.5));
   background: -o-linear-gradient(rgba(0, 0, 0, 0.5), rgba(102, 102, 102, 0.5));
   background: -moz-linear-gradient(rgba(0, 0, 0, 0.5), rgba(102, 102, 102, 0.5));
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(102, 102, 102, 0.5));
 }
-#content .start .start-button {
+#content #quiz .start .start-button {
   margin-left: auto;
   margin-right: auto;
   margin-top: 100px;
   background-color: #AF232B;
-  width: 150px;
-  height: 50px;
-  border-radius: 15px;
+  width: 180px;
+  height: 40px;
+  border-radius: 6px;
   cursor: pointer;
-  padding: 15px 20px;
+  padding: 20px 20px 20px 50px;
 }
-#content .start .start-button .outter-icon {
+#content #quiz .start .start-button .outter-icon {
   display: inline-block;
   position: relative;
   width: 30px;
@@ -107,9 +219,9 @@ body {
   border-radius: 100%;
   background-color: #7C0113;
   vertical-align: middle;
-  padding: 5px 5px 5px 7px;
+  padding: 5px 5px 5px 5px;
 }
-#content .start .start-button .outter-icon .inner-icon {
+#content #quiz .start .start-button .outter-icon .inner-icon {
   display: inline-block;
   position: absolute;
   top: 0;
@@ -117,16 +229,17 @@ body {
   bottom: 0;
   right: 0;
   margin: auto;
-  /*margin-left:auto;
-                    margin-right: auto;*/
+  margin-left: 13px;
   width: 0;
   height: 0;
-  border-left: 15px solid white;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
+  border-left: 18px solid white;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
 }
-#content .start .start-button .start-text {
+#content #quiz .start .start-button .start-text {
   display: inline-block;
   margin-left: 20px;
+  line-height: 40px;
+  vertical-align: bottom;
 }
 /*# sourceMappingURL=webstyles.css.map */

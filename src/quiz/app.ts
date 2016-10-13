@@ -25,6 +25,7 @@ class Greeter {
         for (var i = 0; i < parsedData.questions.length; i++) {
             var param = parsedData.questions[i];
             var question = new quiz.quizData.Question(param.question, param.answers, param.correctAnswer);
+            question.MixAnswers();
             questions.push(question);
         }
         var results = new quiz.quizData.Result(questions.length);
@@ -43,7 +44,7 @@ class Greeter {
         var quizDriver = new quiz.uidrivers.QuizDriver(quizviewer);
 
         var quizPresenter = new quiz.QuizQuestions(quizDriver, startDriver, questions, questionDriver, results, resultDriver);
-
+        quizPresenter.MixQuestions();
         //this.element.innerHTML += "The time is: ";
         //this.span = document.createElement('span');
         //this.element.appendChild(this.span);
@@ -61,6 +62,6 @@ class Greeter {
 }
 
 $(document).ready(function () {
-    var greeter = new Greeter($("#content"));
+    var greeter = new Greeter($("#quiz"));
     //greeter.start();
 });
