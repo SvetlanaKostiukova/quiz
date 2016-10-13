@@ -96,7 +96,7 @@
                         this.testContent.show();
                         $(this.testContent).replaceWith(this.options.testview);
                         this.testContent = this.options.testview;
-                        $(this.testContent).height(this.height);
+                        $(this.testContent).css("min-height", this.height);
                         this.pageNumbers.show();
                         this.progress.show();
                     }
@@ -111,7 +111,7 @@
                         this.testContent.show();
                         $(this.testContent).replaceWith(this.options.resultview);
                         this.testContent = this.options.resultview;
-                        $(this.testContent).height(this.height);
+                        $(this.testContent).css("min-height", this.height);
                         this.pageNumbers.show();
                         this.progress.hide();
                     }

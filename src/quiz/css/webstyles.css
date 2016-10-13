@@ -35,6 +35,7 @@ html {
   font-size: 12pt;
   color: white;
   margin-bottom: 10px;
+  cursor: default;
 }
 #content #quiz .clearfix {
   clear: both;
@@ -67,7 +68,7 @@ html {
 }
 #content #quiz .main-border .quiz-div {
   padding: 5% 10%;
-  border: 2px solid #B2B2B2;
+  border: 2px solid #F0F0F0;
   color: #3B3B3B;
 }
 #content #quiz .main-border .quiz-div .question-div {
@@ -159,12 +160,42 @@ html {
 #content #quiz .main-border .quiz-div .result h1 {
   font-weight: normal;
   font-size: 20pt;
+  margin-bottom: 30px;
 }
 #content #quiz .main-border .quiz-div .result .result-comment {
   font-weight: bold;
+  margin-top: 30px;
 }
-#content #quiz .main-border .quiz-div .result .share-block {
+#content #quiz .main-border .quiz-div .result .share {
+  margin-top: 70px;
+  text-align: center;
+}
+#content #quiz .main-border .quiz-div .result .share .share-block {
+  display: inline-block;
   font-size: 14pt;
+  color: #838383;
+  text-align: left;
+}
+#content #quiz .main-border .quiz-div .result .share .share-block h5 {
+  margin: 0;
+  margin-bottom: 5px;
+  font-weight: normal;
+  cursor: default;
+}
+#content #quiz .main-border .quiz-div .result .share .share-block .social-block .social {
+  display: inline-block;
+  background: url(../images/social.png) no-repeat;
+  background-position: 0px 0px;
+  border-radius: 2px;
+  margin-right: 5px;
+  width: 60px;
+  height: 27px;
+}
+#content #quiz .main-border .quiz-div .result .share .share-block .social-block .social.vk {
+  background-position: -75px 0;
+}
+#content #quiz .main-border .quiz-div .result .share .share-block .social-block .social.tw {
+  background-position: -150px 0;
 }
 #content #quiz .indicators {
   position: absolute;

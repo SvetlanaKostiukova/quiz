@@ -31,6 +31,7 @@
     <Content Include="css\webstyles.min.css">
       <DependentUpon>webstyles.css</DependentUpon>
     </Content>
+    <Content Include="images\social.png" />
     <Content Include="images\X-files.jpg" />
     <Content Include="index.html" />
     <Content Include="scripts\jquery\jquery-2.1.1.min.js" />
